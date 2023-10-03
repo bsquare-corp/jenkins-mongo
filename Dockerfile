@@ -10,9 +10,12 @@ ADD . /mongo
 
 RUN python3 -m pip install -r /mongo/etc/pip/compile-requirements.txt
 
-RUN cd /mongo; \
- python3 buildscripts/scons.py MONGO_VERSION=${MONGO_VERSION} \
-  CCFLAGS=-D__MUSL__ DESTDIR=/usr VERBOSE=off \
+WORKDIR /mongo
+RUN python3 buildscripts/scons.py \
+   MONGO_VERSION=${MONGO_VERSION} \
+   CCFLAGS=-D__MUSL__ \
+   DESTDIR=/usr \
+   VERBOSE=off \
    install-shell --disable-warnings-as-errors --opt=size
 
 # Strip binary
