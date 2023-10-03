@@ -12,5 +12,7 @@ doDockerBuild {
     skipDeploy = true
     squashBuild = true
 
+    dockerPublish = true
+
     timeoutMinutes = 180
 }
