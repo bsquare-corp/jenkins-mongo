@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-@Library('pipeline-library-maven-docker-builder') _
+@Library('pipeline-library') _
 
 /* To avoid confusion, the repo name will always be the same as the GIT repo name under the project,
  * and the ECR registry for the repo will also be named the same.
