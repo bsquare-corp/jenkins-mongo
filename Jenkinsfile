@@ -7,12 +7,14 @@
  */
 
 doDockerBuild {
-    /* Which branch when built gets push to 'latest' */
-    stageFromBranch = 'r4.7.0-musl'
-    skipDeploy = true
-    squashBuild = true
+  /* Which branch when built gets push to 'latest' */
+  stageFromBranch = 'r4.7.0-musl'
+  skipDeploy = true
+  squashBuild = true
 
-    dockerPublish = true
+  dockerPublish = true
 
-    timeoutMinutes = 180
+  platformBuildArches = ['linux/amd64','linux/arm64']
+
+  timeoutMinutes = 180
 }
