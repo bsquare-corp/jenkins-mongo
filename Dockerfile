@@ -9,8 +9,13 @@ ADD . /mongo
 
 WORKDIR /mongo
 
-RUN python3 -m pip install 'poetry==1.5.1'
-RUN python3 -m poetry install --no-root --sync
+# Master branch now does this.
+#RUN python3 -m pip install 'poetry==1.5.1'
+#RUN python3 -m poetry install --no-root --sync
+# v7.0 still does this.
+RUN python3 -m pip install --upgrade pip
+RUN python3 -m pip install -v mongo-ninja-python
+RUN python3 -m pip install -r etc/pip/compile-requirements.txt
 
 RUN python3 buildscripts/scons.py \
    CCFLAGS=-D__MUSL__ \
